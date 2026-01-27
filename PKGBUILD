@@ -65,7 +65,6 @@ build() {
     -DNON_PORTABLE=On \
     -DCMAKE_INSTALL_PREFIX=$SHIP_PREFIX
 
-  patch -Np1 -i "${srcdir}/imgui-befix.patch" -d "build/_deps/imgui-src/"
   cmake --build build --config $BUILD_TYPE $NINJAFLAGS
   cmake --build build --config $BUILD_TYPE --target GenerateO2R  # Generates spaghetti.o2r
 }
