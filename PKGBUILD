@@ -24,8 +24,7 @@ source=(#"${_reponame}-${pkgver}.tar.gz::https://github.com/HarbourMasters/${_re
         "torch-src-dest-paths.patch::https://github.com/HarbourMasters/Torch/pull/187.patch"
         "lus-save-file-path.patch::https://github.com/Kenix3/libultraship/pull/908.patch"
         "spaghettikart-non-portable-fix.patch"
-        "spaghettikart.desktop"
-        "imgui-befix.patch")
+        "spaghettikart.desktop")
 sha256sums=('034156f3ee600b0a9087c9c474ce7b8e0830627deb78488f78ce26dbb31655a5'
             'c4809596a77415d7376691aa80bdee601b358613a196ad6cf59fdf4185c03227'
             '40691d2f05679d6c96a33bb8382fd0f4ca09d2c932532aa1aa51de3df635eeb4'
@@ -33,8 +32,7 @@ sha256sums=('034156f3ee600b0a9087c9c474ce7b8e0830627deb78488f78ce26dbb31655a5'
             '80cb215a02a38d5148bf9084721774427857fd6ba187609156439a391d25907e'
             '906d6265cf744c6f988f39b5986232304801a8a49aea1e39cf8911bd83ddc497'
             '29506f5deaa631bd0ee17e4a89737e0dc12bee1d71041e0b24bbb59b660c8039'
-            '653c8dcf083e7360cc7ec00dcb0a61815e3fa42676e09224f77e6218aa5ebd20'
-            'f71d97a8c940cda521b7ec1348798441b6048dc7b2baf47a749f0b927c12c428')
+            '653c8dcf083e7360cc7ec00dcb0a61815e3fa42676e09224f77e6218aa5ebd20')
 
 SHIP_PREFIX=/opt/spaghettikart
 
