@@ -1,10 +1,10 @@
 <div align="center">
 
-# SpaghettiKart-AppImage 🐧
+# SpaghettiKart-AppImage-Enhanced 🐧
 
-[![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/SpaghettiKart-AppImage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/SpaghettiKart-AppImage/releases/latest)
-[![CI Build Status](https://github.com//pkgforge-dev/SpaghettiKart-AppImage/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/SpaghettiKart-AppImage/releases/latest)
-[![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/SpaghettiKart-AppImage)](https://github.com/pkgforge-dev/SpaghettiKart-AppImage/releases/latest)
+[![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/SpaghettiKart-AppImage-Enhanced/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/SpaghettiKart-AppImage-Enhanced/releases/latest)
+[![CI Build Status](https://github.com//pkgforge-dev/SpaghettiKart-AppImage-Enhanced/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/SpaghettiKart-AppImage-Enhanced/releases/latest)
+[![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/SpaghettiKart-AppImage-Enhanced)](https://github.com/pkgforge-dev/SpaghettiKart-AppImage-Enhanced/releases/latest)
 
 <p align="center">
   <img src="https://github.com/HarbourMasters/SpaghettiKart/raw/main/docs/spaghettigithubnight.png" width="512" />
@@ -13,7 +13,7 @@
 
 | Latest Stable Release | Upstream URL |
 | :---: | :---: |
-| [Click here](https://github.com/pkgforge-dev/SpaghettiKart-AppImage/releases/latest) | [Click here](https://github.com/HarbourMasters/SpaghettiKart) |
+| [Click here](https://github.com/pkgforge-dev/SpaghettiKart-AppImage-Enhanced/releases/latest) | [Click here](https://github.com/HarbourMasters/SpaghettiKart) |
 
 </div>
 
