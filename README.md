@@ -7,7 +7,7 @@
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/SpaghettiKart-AppImage-Enhanced)](https://github.com/pkgforge-dev/SpaghettiKart-AppImage-Enhanced/releases/latest)
 
 <p align="center">
-  <img src="https://github.com/HarbourMasters/SpaghettiKart/blob/main/spaghettikart.ico?raw" width="128" />
+  <img src="https://github.com/HarbourMasters/SpaghettiKart/blob/main/icon.png" width="128" />
 </p>
 
 
