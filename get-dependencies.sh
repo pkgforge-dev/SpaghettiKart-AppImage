@@ -34,15 +34,15 @@ git clone --recursive --depth 1 "$REPO" ./SpaghettiKart
 echo "$VERSION" > ~/version
 
 cd ./SpaghettiKart
-patch -Np1 -i "../spaghettikart-cmake-flags.patch"
-export CFLAGS+="-Werror=format-security"
-export CXXFLAGS+="-Werror=format-security"
+#patch -Np1 -i "../spaghettikart-cmake-flags.patch"
+#export CFLAGS+="-Werror=format-security"
+#export CXXFLAGS+="-Werror=format-security"
 cmake . \
     -Bbuild \
     -GNinja \
     -DNON_PORTABLE=On \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -Wno
+    -DCMAKE_C_FLAGS="-Wno-incompatible-pointer-types"
 cmake --build build --config Release
 cmake --build build --config Release --target GenerateO2R
 cmake --install build
