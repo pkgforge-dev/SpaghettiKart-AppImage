@@ -1,0 +1,3 @@
+dir=${XDG_CONFIG_HOME:-~/.local}/share/Spaghettify
+mkdir -p "$dir"
+cd "$dir"
