@@ -39,6 +39,6 @@ cmake . \
     -GNinja \
     -DNON_PORTABLE=On \
     -DCMAKE_INSTALL_PREFIX=/usr
-cmake --build build --config Release $NINJAFLAGS
+cmake --build build --config Release
 cmake --build build --config Release --target GenerateO2R
 cmake --install build
