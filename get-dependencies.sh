@@ -60,6 +60,7 @@ install -m644 -t "/usr/bin" \
 #install -Dm644 yamls -t "/usr/bin"
 # Link executable to /usr/bin, add to desktop entry & icons
 #  ln -s "${SHIP_PREFIX}/Spaghettify" "${pkgdir}/usr/bin/Spaghettify"
+sed -i 's/^Icon=icon$/Icon=spaghettikart/' SpaghettiKart.desktop
 install -Dm644 "SpaghettiKart.desktop" -t "/usr/share/applications"
 install -Dm644 icon.png "/usr/share/pixmaps/spaghettikart.png"
 # Licenses (HarbourMasters libraries are MIT, game engine + port source code is nonfree)
