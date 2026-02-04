@@ -68,20 +68,25 @@ else
     
     cd ./SpaghettiKart
     patch -Np1 -i "../spaghettikart-non-portable-fix.patch"
+	cd libultraship
+  	patch -Np1 -i "./lus-save-file-path.patch"
+  	cd ../torch
+  	patch -Np1 -i "./torch-src-dest-paths.patch"
+	cd ..
     cmake . \
         -Bbuild \
         -GNinja \
-        -DCMAKE_INSTALL_PREFIX=/usr/share/spaghettikart \
+        -DCMAKE_INSTALL_PREFIX=/usr \
         -DNON_PORTABLE=On
     
     cmake --build build --config Release
     cmake --build build --config Release --target GenerateO2R
 
-    mkdir -p /usr/share/spaghettikart
-    mv -v build/Spaghettify /usr/share/spaghettikart
+    mkdir -p /usr/bin
+    mv -v build/Spaghettify /usr/bin
     ln -s "usr/share/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
-    mv -v build/config.yml build/spaghetti.o2r /usr/share/spaghettikart
-    cp -r build/yamls build/meta /usr/share/spaghettikart
+    mv -v build/config.yml build/spaghetti.o2r /usr/bin
+    cp -r build/yamls build/meta /usr/bin
     sed -i 's/^Icon=icon$/Icon=SpaghettiKart/' SpaghettiKart.desktop
     cp -v "SpaghettiKart.desktop" "/usr/share/applications"
     cp -v icon.png "/usr/share/pixmaps/SpaghettiKart.png"
