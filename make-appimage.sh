@@ -13,7 +13,7 @@ export DESKTOP=/usr/share/applications/SpaghettiKart.desktop
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun /usr/bin/Spaghettify
+quick-sharun /usr/bin/Spaghettify /usr/bin/*
 #mv /opt/spaghettikart/spaghetti.o2r ./AppDir/bin
 #mv /opt/spaghettikart/config.yml ./AppDir/bin
 #mv /opt/spaghettikart/gamecontrollerdb.txt ./AppDir/bin
