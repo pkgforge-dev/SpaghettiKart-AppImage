@@ -26,29 +26,58 @@ get-debloated-pkgs --add-common --prefer-nano
 make-aur-package zenity-rs-bin
 
 # If the application needs to be manually built that has to be done down here
-echo "Making nightly build of SpaghettiKart..."
+echo "Building SpaghettiKart..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/HarbourMasters/SpaghettiKart"
-VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
-git clone --recursive --depth 1 "$REPO" ./SpaghettiKart
-echo "$VERSION" > ~/version
+# Determine to build nightly or stable
+if [ "${DEVEL_RELEASE-}" = 1 ]; then
+    echo "Making nightly build of SpaghettiKart..."
+    VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
+    git clone --recursive --depth 1 "$REPO" ./SpaghettiKart
+    echo "$VERSION" > ~/version
 
-cd ./SpaghettiKart
-patch -Np1 -i "../spaghettikart-cmake-flags.patch"
-cmake . \
-    -Bbuild \
-    -GNinja \
-    -DCMAKE_INSTALL_PREFIX=/usr/share/spaghettikart \
-    -DCMAKE_C_FLAGS="-Wno-incompatible-pointer-types -Wno-int-conversion -Wno-changes-meaning"
-    #-DNON_PORTABLE=On \
-cmake --build build --config Release
-cmake --build build --config Release --target GenerateO2R
+    cd ./SpaghettiKart
+    patch -Np1 -i "../spaghettikart-cmake-flags.patch"
+    cmake . \
+        -Bbuild \
+        -GNinja \
+        -DCMAKE_INSTALL_PREFIX=/usr/share/spaghettikart \
+        -DCMAKE_C_FLAGS="-Wno-incompatible-pointer-types -Wno-int-conversion -Wno-changes-meaning"
+        #-DNON_PORTABLE=On \
+    cmake --build build --config Release
+    cmake --build build --config Release --target GenerateO2R
 
-mkdir -p /usr/share/spaghettikart
-mv -v build/Spaghettify /usr/share/spaghettikart
-ln -s "usr/share/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
-mv -v build/config.yml build/spaghetti.o2r /usr/share/spaghettikart
-cp -r build/yamls build/meta /usr/share/spaghettikart
-sed -i 's/^Icon=icon$/Icon=SpaghettiKart/' SpaghettiKart.desktop
-cp -v "SpaghettiKart.desktop" "/usr/share/applications"
-cp -v icon.png "/usr/share/pixmaps/SpaghettiKart.png"
+    mkdir -p /usr/share/spaghettikart
+    mv -v build/Spaghettify /usr/share/spaghettikart
+    ln -s "usr/share/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
+    mv -v build/config.yml build/spaghetti.o2r /usr/share/spaghettikart
+    cp -r build/yamls build/meta /usr/share/spaghettikart
+    sed -i 's/^Icon=icon$/Icon=SpaghettiKart/' SpaghettiKart.desktop
+    cp -v "SpaghettiKart.desktop" "/usr/share/applications"
+    cp -v icon.png "/usr/share/pixmaps/SpaghettiKart.png"
+else
+    echo "Making stable build of SpaghettiKart..."
+	VERSION="$(git ls-remote --tags --sort="v:refname" https://github.com/HarbourMasters/SpaghettiKart | tail -n1 | sed 's/.*\///; s/\^{}//; s/^v//')"
+	git clone --branch v"$VERSION" --single-branch --recursive --depth 1 "$REPO" ./SpaghettiKart
+    echo "$VERSION" > ~/version
+    
+    cd ./SpaghettiKart
+    patch -Np1 -i "../spaghettikart-non-portable-fix.patch"
+    cmake . \
+        -Bbuild \
+        -GNinja \
+        -DCMAKE_INSTALL_PREFIX=/usr/share/spaghettikart \
+        -DNON_PORTABLE=On
+    
+    cmake --build build --config Release
+    cmake --build build --config Release --target GenerateO2R
+
+    mkdir -p /usr/share/spaghettikart
+    mv -v build/Spaghettify /usr/share/spaghettikart
+    ln -s "usr/share/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
+    mv -v build/config.yml build/spaghetti.o2r /usr/share/spaghettikart
+    cp -r build/yamls build/meta /usr/share/spaghettikart
+    sed -i 's/^Icon=icon$/Icon=SpaghettiKart/' SpaghettiKart.desktop
+    cp -v "SpaghettiKart.desktop" "/usr/share/applications"
+    cp -v icon.png "/usr/share/pixmaps/SpaghettiKart.png"
+fi
