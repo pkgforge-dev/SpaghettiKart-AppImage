@@ -63,10 +63,10 @@ else
 	VERSION=$(wget https://api.github.com/repos/HarbourMasters/SpaghettiKart/tags -O - | \
 		./gron.awk | grep -v "nJoy" | awk -F'=|"' '/name/ {print $3}' | \
 		sort -V -r | head -1)
+	git clone --branch "$VERSION" --single-branch --recursive --depth 1 "$REPO" ./SpaghettiKart
     echo "$VERSION" > ~/version
     
     cd ./SpaghettiKart
-	git submodule update --init --recursive
     patch -Np1 -i "../spaghettikart-non-portable-fix.patch"
     cmake . \
         -Bbuild \
