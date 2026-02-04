@@ -52,9 +52,3 @@ cp -r build/yamls build/meta /usr/share/spaghettikart
 sed -i 's/^Icon=icon$/Icon=SpaghettiKart/' SpaghettiKart.desktop
 cp -v "SpaghettiKart.desktop" "/usr/share/applications"
 cp -v icon.png "/usr/share/pixmaps/SpaghettiKart.png"
-
-
-mv -v ./bin/Cemu_release /usr/bin/cemu
-mkdir -p /usr/share/Cemu
-cp -r ./bin/* /usr/share/Cemu
-cp -v ./dist/linux/info.cemu.Cemu.desktop /usr/share/applications/Cemu.desktop
