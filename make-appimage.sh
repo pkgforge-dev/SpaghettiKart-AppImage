@@ -15,13 +15,6 @@ export DEPLOY_OPENGL=1
 # Deploy dependencies
 quick-sharun /usr/bin/Spaghettify
 mv /usr/bin/spaghetti.o2r /usr/bin/config.yml /usr/bin/meta /usr/bin/yamls ./AppDir/shared/bin/
-#mv /usr/bin/spaghetti.o2r ./AppDir/shared/bin
-#mv /usr/bin/config.yml ./AppDir/shared/bin
-#mv /usr/bin/meta ./AppDir/shared/bin
-#mv /usr/bin/yamls ./AppDir/shared/bin
-#mv /opt/spaghettikart/spaghetti.o2r ./AppDir/bin
-#mv /opt/spaghettikart/config.yml ./AppDir/bin
-#mv /opt/spaghettikart/gamecontrollerdb.txt ./AppDir/bin
 echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' >> ./AppDir/.env
 
 # Additional changes can be done in between here
