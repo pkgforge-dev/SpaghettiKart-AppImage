@@ -15,7 +15,7 @@ export DEPLOY_OPENGL=1
 # Deploy dependencies
 quick-sharun /usr/bin/Spaghettify /usr/share/spaghettikart
 mv /usr/share/spaghettikart/spaghetti.o2r /usr/share/spaghettikart/config.yml /usr/share/spaghettikart/meta /usr/share/spaghettikart/yamls ./AppDir/shared/bin/
-echo 'SHARUN_WORKING_DIR=~/.local/share/spaghettify' >> ./AppDir/.env
+echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' >> ./AppDir/.env
 
 # Additional changes can be done in between here
 
