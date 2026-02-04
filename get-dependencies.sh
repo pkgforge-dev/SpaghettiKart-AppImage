@@ -38,9 +38,9 @@ patch -Np1 -i "../spaghettikart-cmake-flags.patch"
 cmake . \
     -Bbuild \
     -GNinja \
-    -DNON_PORTABLE=On \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_C_FLAGS="-Wno-incompatible-pointer-types -Wno-int-conversion -Wno-changes-meaning"
+    #-DNON_PORTABLE=On \
 cmake --build build --config Release
 cmake --build build --config Release --target GenerateO2R
 
