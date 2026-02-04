@@ -29,6 +29,7 @@ make-aur-package zenity-rs-bin
 echo "Building SpaghettiKart..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/HarbourMasters/SpaghettiKart"
+GRON="https://raw.githubusercontent.com/xonixx/gron.awk/refs/heads/main/gron.awk"
 # Determine to build nightly or stable
 if [ "${DEVEL_RELEASE-}" = 1 ]; then
     echo "Making nightly build of SpaghettiKart..."
@@ -57,11 +58,15 @@ if [ "${DEVEL_RELEASE-}" = 1 ]; then
     cp -v icon.png "/usr/share/pixmaps/SpaghettiKart.png"
 else
     echo "Making stable build of SpaghettiKart..."
-	VERSION="$(git ls-remote --tags --sort="v:refname" https://github.com/HarbourMasters/SpaghettiKart | tail -n1 | sed 's/.*\///; s/\^{}//; s/^v//')"
-	git clone --branch v"$VERSION" --single-branch --recursive --depth 1 "$REPO" ./SpaghettiKart
+	wget "$GRON" -O ./gron.awk
+	chmod +x ./gron.awk
+	VERSION=$(wget https://api.github.com/repos/HarbourMasters/SpaghettiKart/tags -O - | \
+		./gron.awk | grep -v "nJoy" | awk -F'=|"' '/name/ {print $3}' | \
+		sort -V -r | head -1)
     echo "$VERSION" > ~/version
     
     cd ./SpaghettiKart
+	git submodule update --init --recursive
     patch -Np1 -i "../spaghettikart-non-portable-fix.patch"
     cmake . \
         -Bbuild \
