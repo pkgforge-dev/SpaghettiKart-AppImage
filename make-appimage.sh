@@ -14,7 +14,8 @@ export DEPLOY_OPENGL=1
 
 # Deploy dependencies
 quick-sharun /usr/bin/Spaghettify /usr/bin/zenity /usr/share/spaghettikart
-mv /usr/bin/spaghetti.o2r /usr/bin/config.yml /usr/bin/meta /usr/bin/yamls ./AppDir/shared/bin/
+#mv /usr/bin/spaghetti.o2r /usr/bin/config.yml /usr/bin/meta /usr/bin/yamls ./AppDir/shared/bin/
+mv /usr/bin/spaghetti.o2r /usr/bin/config.yml /usr/bin/yamls ./AppDir/shared/bin/
 wget -O ./AppDir/shared/bin/gamecontrollerdb.txt https://raw.githubusercontent.com/mdqinc/SDL_GameControllerDB/refs/heads/master/gamecontrollerdb.txt
 echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}' >> ./AppDir/.env
 
