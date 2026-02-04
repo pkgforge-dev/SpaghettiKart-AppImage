@@ -84,7 +84,7 @@ else
 
     mkdir -p /usr/bin
     mv -v build/Spaghettify /usr/bin
-    ln -s "usr/share/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
+    #ln -s "usr/share/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
     mv -v build/config.yml build/spaghetti.o2r /usr/bin
     cp -r build/yamls build/meta /usr/bin
     sed -i 's/^Icon=icon$/Icon=SpaghettiKart/' SpaghettiKart.desktop
