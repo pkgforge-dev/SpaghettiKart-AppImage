@@ -9,6 +9,7 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     cmake         \
     fmt           \
+    libdecor      \
     libzip        \
     ninja         \
     nlohmann-json \
