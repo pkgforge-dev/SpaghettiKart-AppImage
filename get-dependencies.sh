@@ -38,22 +38,23 @@ patch -Np1 -i "../spaghettikart-cmake-flags.patch"
 cmake . \
     -Bbuild \
     -GNinja \
-    -DCMAKE_INSTALL_PREFIX=/usr/spaghettikart \
+    -DCMAKE_INSTALL_PREFIX=/usr/share/spaghettikart \
     -DCMAKE_C_FLAGS="-Wno-incompatible-pointer-types -Wno-int-conversion -Wno-changes-meaning"
     #-DNON_PORTABLE=On \
 cmake --build build --config Release
 cmake --build build --config Release --target GenerateO2R
 
-install -dm755 /usr/bin/
-install -dm755 /usr/spaghettikart
-install -m755 build/Spaghettify /usr/spaghettikart
-ln -s "usr/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
-install -m644 build/config.yml -t /usr/spaghettikart
-install -m644 build/spaghetti.o2r -t /usr/spaghettikart
-cp -r build/yamls build/meta /usr/spaghettikart
+mkdir -p /usr/share/spaghettikart
+mv -v build/Spaghettify /usr/share/spaghettikart
+ln -s "usr/share/spaghettikart/Spaghettify" "/usr/bin/Spaghettify"
+mv -v build/config.yml build/spaghetti.o2r /usr/share/spaghettikart
+cp -r build/yamls build/meta /usr/share/spaghettikart
 sed -i 's/^Icon=icon$/Icon=SpaghettiKart/' SpaghettiKart.desktop
-install -Dm644 "SpaghettiKart.desktop" -t "/usr/share/applications"
-install -Dm644 icon.png "/usr/share/pixmaps/SpaghettiKart.png"
-# Licenses (HarbourMasters libraries are MIT, game engine + port source code is nonfree)
-install -Dm644 "libultraship/LICENSE" "/usr/share/licenses/spaghettikart/libultraship-LICENSE"
-install -Dm644 "torch/LICENSE" "/usr/share/licenses/spaghettikart/torch-LICENSE"
+cp -v "SpaghettiKart.desktop" "/usr/share/applications"
+cp -v icon.png "/usr/share/pixmaps/SpaghettiKart.png"
+
+
+mv -v ./bin/Cemu_release /usr/bin/cemu
+mkdir -p /usr/share/Cemu
+cp -r ./bin/* /usr/share/Cemu
+cp -v ./dist/linux/info.cemu.Cemu.desktop /usr/share/applications/Cemu.desktop
