@@ -87,11 +87,4 @@ package() {
   ln -s "${SHIP_PREFIX}/Spaghettify" "${pkgdir}/usr/bin/Spaghettify"
   install -Dm644 "${srcdir}/spaghettikart.desktop" -t "${pkgdir}/usr/share/applications"
   install -Dm644 icon.png "${pkgdir}/usr/share/pixmaps/spaghettikart.png"
-
-  # Licenses (HarbourMasters libraries are MIT, game engine + port source code is nonfree)
-  install -Dm644 "libultraship/LICENSE" "${pkgdir}/usr/share/licenses/spaghettikart/libultraship-LICENSE"
-  install -Dm644 "torch/LICENSE" "${pkgdir}/usr/share/licenses/spaghettikart/torch-LICENSE"
-
-  # Copy game documentation
-  install -Dm644 "README.md" "${pkgdir}/usr/share/doc/spaghettikart/README.md"
 }
