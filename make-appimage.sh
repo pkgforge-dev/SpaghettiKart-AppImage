@@ -11,7 +11,7 @@ export ICON=/usr/share/pixmaps/spaghettikart.png
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun /usr/bin/*
+quick-sharun /usr/bin/Spaghettify
 echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}/bin' >> ./AppDir/.env
 
 # Additional changes can be done in between here
