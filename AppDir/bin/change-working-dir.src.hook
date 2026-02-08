@@ -1,3 +1,12 @@
+#!/bin/false
+
 dir=${XDG_DATA_HOME:-~/.local/share}/spaghettify
 mkdir -p "$dir"
 cd "$dir"
+
+for f in spaghetti.o2r config.yml gamecontrollerdb.txt; do
+	f="$APPDIR"/bin/"$f" 
+	if [ -f "$f" ]; then
+		cp -f "$f" ./
+	fi
+done
