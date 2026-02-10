@@ -17,7 +17,7 @@
 
 </div>
 
-### ⚠️ Need to generate `mk64.o2r` using official [AppImage](https://github.com/HarbourMasters/SpaghettiKart/releases) and place in ~/.local/share/spaghettify/ ⚠️
+### ⚠️ Need to generate `mk64.o2r` using official [AppImage](https://github.com/HarbourMasters/SpaghettiKart/releases) and place in `~/.local/share/spaghettify/` ⚠️
 
 ---
 
