@@ -6,7 +6,7 @@ cd "$dir"
 
 for f in spaghetti.o2r config.yml gamecontrollerdb.txt; do
 	f="$APPDIR"/bin/"$f" 
-	if [ -f "$f" ]; then
-		cp -f "$f" ./
+	if [ -e "$f" ]; then
+		cp -af "$f" ./
 	fi
 done
