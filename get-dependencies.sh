@@ -44,6 +44,7 @@ cmake --build build --config Release
 cmake --build build --config Release --target GenerateO2R
 
 mv -v build/yamls ../AppDir/bin
+mv -v build/meta ../AppDir/bin
 mv -v build/Spaghettify ../AppDir/bin
 mv -v build/config.yml ../AppDir/bin
 mv -v build/spaghetti.o2r ../AppDir/bin
