@@ -35,9 +35,7 @@ echo "$VERSION" > ~/version
 
 mkdir -p ./AppDir/bin
 cd ./SpaghettiKart
-patch -Np1 -i "../spaghettikart-non-portable-fix.patch"
-patch -d libultraship -Np1 -i "../../lus-save-file-path.patch"
-patch -d torch -Np1 -i "../../torch-src-dest-paths.patch"
+patch -Np1 -i ../spaghettikart-cmake-flags.patch
 cmake . \
     -Bbuild \
     -GNinja \
@@ -46,6 +44,7 @@ cmake --build build --config Release
 cmake --build build --config Release --target GenerateO2R
 
 mv -v build/yamls ../AppDir/bin
+mv -v build/meta ../AppDir/bin
 mv -v build/Spaghettify ../AppDir/bin
 mv -v build/config.yml ../AppDir/bin
 mv -v build/spaghetti.o2r ../AppDir/bin
